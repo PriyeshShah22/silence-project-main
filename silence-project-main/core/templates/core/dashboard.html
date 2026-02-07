@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Silence Monitor Dashboard</title>
+
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="navbar">
+    <div class="container nav-flex">
+
+      <div class="nav-logo">
+        Silence Monitor
+      </div>
+
+      <nav class="nav-links">
+        <a href="#">Upload</a>
+        <a href="#">Dashboard</a>
+        <a href="#">Reports</a>
+        <a href="#">About</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <h1 class="hero-title gradient-title">
+  Civic Silence Dashboard
+</h1>
+
+
+    <p class="hero-subtitle">
+      Governance Listening Tool // Make the unheard visible
+    </p>
+
+    <span class="status-pill">
+      🟢 Secure Processing Enabled
+    </span>
+  </section>
+
+
+  <!-- ================= MAIN DASHBOARD ================= -->
+  <section class="section">
+    <div class="container">
+
+      <!-- Upload + Threshold Card -->
+      <div class="card">
+
+        <h2 class="card-title">Data Ingestion</h2>
+        <p class="card-desc">
+          Upload your complaint dataset. We detect districts that are unusually silent,
+          possibly due to access barriers or suppression.
+        </p>
+
+        <!-- Dropzone -->
+        <div class="dropzone">
+          <div class="dropzone-icon">⬆</div>
+          <p class="dropzone-text">
+            Drag & drop your CSV file here<br>
+            or click to browse
+          </p>
+        </div>
+
+        <br>
+
+        <!-- Slider -->
+        <label>Silence Threshold (% of Avg Density)</label>
+
+        <div class="slider-row">
+          <input type="range" min="0" max="1" step="0.01" value="0.50">
+          <span class="badge-value">0.50</span>
+        </div>
+
+        <p class="small-text" style="margin-top:10px;">
+          Adjust sensitivity. Lower values flag more regions.
+        </p>
+
+        <br>
+
+        <!-- Button -->
+        <button class="btn btn-primary">
+          Run Analysis Pipeline
+        </button>
+
+      </div>
+
+
+      <!-- ================= METRICS CARD ================= -->
+      <div class="card" style="margin-top:35px;">
+
+        <h2 class="card-title">Dataset Metrics</h2>
+        <p class="card-desc">
+          Summary indicators from the uploaded governance dataset.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Value</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Mean Complaint Density</td>
+              <td>12.4</td>
+            </tr>
+            <tr>
+              <td>Median Density</td>
+              <td>9.7</td>
+            </tr>
+            <tr>
+              <td>Flagged Silent Zones</td>
+              <td><strong style="color: var(--accent);">5 Districts</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="small-text" style="margin-top:15px;">
+          ⚠️ Low complaints do not guarantee peace. Always correlate with field reports.
+        </p>
+
+      </div>
+
+
+      <!-- ================= FLAGGED REGIONS ================= -->
+      <div class="card" style="margin-top:35px;">
+
+        <h2 class="card-title">Flagged Silent Regions</h2>
+        <p class="card-desc">
+          Ranked by lowest reporting density. These areas may reflect under-reporting.
+        </p>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Region ID</th>
+              <th>District</th>
+              <th>Density</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>R-014</td>
+              <td>North Sector</td>
+              <td>2.1</td>
+              <td style="color: var(--accent); font-weight:700;">
+                ⚠ Trend Gap
+              </td>
+            </tr>
+
+            <tr>
+              <td>R-022</td>
+              <td>Riverbend</td>
+              <td>3.4</td>
+              <td style="color: var(--accent); font-weight:700;">
+                ⚠ Low Signal
+              </td>
+            </tr>
+
+            <tr>
+              <td>R-031</td>
+              <td>East Valley</td>
+              <td>4.0</td>
+              <td style="color: var(--accent); font-weight:700;">
+                ⚠ Monitor Closely
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+
+
+    </div>
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    Silence Monitor • Analytics Platform v2.1.0 • Governance Signal Detection
+  </footer>
+
+</body>
+</html>

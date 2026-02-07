@@ -1,0 +1,7 @@
+region,district,population,complaints,history_avg
+Ward A,North Dist,12000,5,150
+Ward B,North Dist,8500,240,230
+Ward C,South Dist,30000,12,400
+Ward D,South Dist,15000,450,420
+Ward E,East Dist,5000,80,75
+Ward F,North Dist,22000,3,310

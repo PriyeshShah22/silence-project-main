@@ -1,0 +1,433 @@
+/* =========================================================
+   SILENCE MONITOR — GOVERNANCE NOIR UI SYSTEM
+   Reusable CSS for all linked HTML pages
+   Theme: Calm Civic Navy + Warm Amber Accent
+   Font System: Inter + Optional Display Serif
+========================================================= */
+
+/* -------------------------------
+   1. GOOGLE FONTS
+-------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap");
+
+
+/* -------------------------------
+   2. ROOT DESIGN TOKENS
+-------------------------------- */
+:root {
+  /* Core Palette */
+  --primary: #1f3a5f;
+  --secondary: #4c6a85;
+  --accent: #d97742;
+
+  /* Background Layers */
+  --bg: #0b1220;
+  --bg-soft: rgba(255, 255, 255, 0.03);
+  --surface: rgba(255, 255, 255, 0.06);
+
+  /* Text Colors */
+  --text: #f5f7fb;
+  --muted: rgba(255, 255, 255, 0.65);
+  --faint: rgba(255, 255, 255, 0.35);
+
+  /* Borders + Shadows */
+  --border: rgba(255, 255, 255, 0.08);
+  --shadow: 0 18px 45px rgba(0, 0, 0, 0.55);
+
+  /* Radius + Spacing */
+  --radius-xl: 22px;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+
+  /* Typography */
+  --font-body: "Inter", sans-serif;
+  --font-display: "Playfair Display", serif;
+
+  /* Animation */
+  --transition: all 0.25s ease;
+}
+
+
+/* -------------------------------
+   3. GLOBAL RESET
+-------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: radial-gradient(circle at top, #14233a, var(--bg));
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+
+/* -------------------------------
+   4. REUSABLE LAYOUT WRAPPERS
+-------------------------------- */
+.container {
+  width: min(1100px, 92%);
+  margin: auto;
+}
+
+.section {
+  padding: 70px 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* -------------------------------
+   5. HEADINGS + TYPOGRAPHY
+-------------------------------- */
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+h1 {
+  font-size: clamp(2.3rem, 4vw, 3.4rem);
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+p {
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.small-text {
+  font-size: 0.9rem;
+  color: var(--faint);
+}
+
+
+/* -------------------------------
+   6. NAVBAR (Reusable)
+-------------------------------- */
+.navbar {
+  padding: 18px 0;
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(217, 119, 66, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.navbar .nav-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  font-weight: 700;
+
+  /* Gold gradient text */
+  background: linear-gradient(
+    90deg,
+    #fff6d5,
+    #f5d48c,
+    #d97742
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+  color: transparent;
+}
+
+.nav-links a {
+  margin-left: 18px;
+  text-decoration: none;
+  font-weight: 600;
+
+  color: rgba(245, 212, 140, 0.85);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(217, 119, 66, 0.35);
+}
+
+
+
+/* -------------------------------
+   7. HERO HEADER (Landing Style)
+-------------------------------- */
+.hero {
+  text-align: center;
+  padding: 70px 0 40px;
+}
+
+.hero-title {
+  font-size: 3.2rem;
+}
+
+.hero-subtitle {
+  margin-top: 10px;
+  color: var(--muted);
+  font-family: monospace;
+  font-size: 0.95rem;
+}
+
+.status-pill {
+  display: inline-block;
+  margin-top: 18px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  background: rgba(217, 119, 66, 0.12);
+  border: 1px solid rgba(217, 119, 66, 0.35);
+  color: var(--accent);
+}
+
+
+/* -------------------------------
+   8. CARD SYSTEM (Most Important)
+-------------------------------- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(217, 119, 66, 0.35);
+}
+
+.card-title {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.card-desc {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+
+/* -------------------------------
+   9. FORM ELEMENTS
+-------------------------------- */
+label {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 8px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(217, 119, 66, 0.25);
+}
+
+
+/* -------------------------------
+   10. UPLOAD DROPZONE
+-------------------------------- */
+.dropzone {
+  border: 2px dashed rgba(217, 119, 66, 0.35);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  text-align: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dropzone:hover {
+  background: rgba(217, 119, 66, 0.06);
+  border-color: var(--accent);
+}
+
+.dropzone-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: var(--accent);
+}
+
+.dropzone-text {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+/* -------------------------------
+   11. SLIDER + VALUE BADGE
+-------------------------------- */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+input[type="range"] {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.badge-value {
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-family: monospace;
+  font-weight: 600;
+  border: 1px solid rgba(217, 119, 66, 0.35);
+  background: rgba(0, 0, 0, 0.35);
+  color: var(--accent);
+}
+
+
+/* -------------------------------
+   12. BUTTON SYSTEM
+-------------------------------- */
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-lg);
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.btn-primary {
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    #ff9a5c
+  );
+  color: #111;
+  box-shadow: 0 0 18px rgba(217, 119, 66, 0.35);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 28px rgba(217, 119, 66, 0.55);
+}
+
+.btn-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* -------------------------------
+   13. TABLES (Analytics Pages)
+-------------------------------- */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.table th,
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  text-align: left;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.table tr:hover td {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+
+/* -------------------------------
+   14. FOOTER (Reusable)
+-------------------------------- */
+.footer {
+  text-align: center;
+  padding: 25px;
+  margin-top: 60px;
+  color: var(--faint);
+  font-size: 0.85rem;
+}
+
+
+/* -------------------------------
+   15. RESPONSIVE DESIGN
+-------------------------------- */
+@media (max-width: 768px) {
+  .card {
+    padding: 20px;
+  }
+
+  .hero-title {
+    font-size: 2.4rem;
+  }
+
+  .slider-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn {
+    font-size: 0.95rem;
+  }
+}
+
+/* -------------------------------
+   GRADIENT HEADINGS (White → Gold)
+-------------------------------- */
+
+.gradient-title {
+  background: linear-gradient(
+    90deg,
+    #ffffff,
+    #f5d48c,
+    #d97742
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+  color: transparent;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Silence Monitor | Welcome</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <style>
+    /* SPLASH SCREEN LAYOUT */
+.splash-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  /* this keeps content centered but not too stiff */
+  align-items: center;
+  text-align: center;
+
+  padding: 40px 20px;
+
+  animation: fadeInUp 0.8s ;
+}
+
+.logo-img{
+  transition: transform 0.3s ease-in-out, opacity 0.5s ease;
+  width:1350px;
+  height:auto
+}
+.logo-img:hover {
+  transform: scale(1.06);
+}
+
+
+/* TEAM LIST STYLE */
+.team-list {
+  list-style: none;
+  margin: 25px 0;
+  padding: 0;
+  font-size: 1.5rem;
+  color: var(--muted);
+}
+
+.team-list li {
+  margin: 8px 0;
+}
+
+.team-list span {
+  font-weight: 850;
+  color: var(--primary);
+}
+
+/* BUTTON BASE */
+.btn {
+  display: inline-block;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 35%;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+/* PRIMARY BUTTON STYLE */
+.btn-primary {
+  background: linear-gradient(
+    45deg,
+    #f5d48c,
+    #f29766
+    #d97742
+  );
+  color: #1f2a44;
+
+  
+}
+
+/* PREMIUM HOVER EFFECT */
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+}
+
+/* CLICK EFFECT */
+.btn-primary:active {
+  transform: translateY(0px) scale(0.97);
+}
+
+.bgblue {
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), #1F3A5F, #D97742);
+  padding: 2px;
+  border-radius: 1.2rem;
+  box-shadow: 0 1rem 1.5rem -0.9rem rgba(31, 58, 95, 0.3);
+  
+  max-width: 450px;
+  margin: 20px auto; 
+}
+.card {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #162a45 0%, #1F3A5F 50%, #162a45 100%);
+  
+  padding: 2rem;
+  border-radius: 1.1rem; 
+}
+
+.card span {
+    color: #D97742;
+    font-weight: 700;
+}
+
+/* PAGE FADE IN */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="splash-container">
+      
+      <img src="{% static 'images/logo.png' %}" alt="Silence Monitor Logo" class="logo-img">
+      
+      
+      <p style="color: #9daec5; margin-top: 10px; font-weight: 500;font-size: 1.7rem">
+          Project by
+      </p>
+      <div class="bgblue">
+  <div class="card">
+    <ul class="team-list">
+          <li><span>Hansa Gusaiwal</span> (Roll No. 60)</li>
+          <li><span>Nupoor Mahajan</span> (Roll No. 62)</li>
+          <li><span>Priyesh Shah</span> (Roll No. 41)</li>
+      </ul>
+  </div>
+</div>
+
+      
+
+      <a href="{% url 'about' %}" class="btn btn-primary btn-pulse">
+          Proceed to Monitor →
+      </a>
+
+  </div>
+
+</body>
+</html>
